@@ -42,8 +42,8 @@ X_train = X_train.astype('float32')
 X_test = X_test.astype('float32')
 
 # preprocess input
-X_train = preprocess_input(X_train)
-X_test = preprocess_input(X_test)
+X_train = preprocess_input(X_train,data_format='channels_last')
+X_test = preprocess_input(X_test,data_format='channels_last')
 
 # For training, the auxilary branch must be used to correctly train NASNet
 model = NASNetCIFAR((img_rows, img_cols, img_channels), use_auxiliary_branch=True)
